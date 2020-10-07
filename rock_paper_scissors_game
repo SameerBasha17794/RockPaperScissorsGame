@@ -1,0 +1,31 @@
+class RockPaperScissor(object):
+    ROCK = ["rock", "Rock", "ROCK"]
+    PAPER = ["paper", "Paper", "PAPER"]
+    SCISSORS = ["scissors", "scissor", "Scissor", "Scissors", "SCISSOR", "SCISSORS"]
+
+    def __init__(self):
+        self.user1 = input("What is your Name ?: ")
+        self.user2 = input("And Your Name ?: ")
+        self.user1_answer = input("{} do you want to choose rock paper or scissors : ".format(self.user1))
+        self.user2_answer = input("{} do you want to choose rock paper or scissors : ".format(self.user2))
+
+    def compare(self, u1, u2):
+        # if (u1 in self.ROCK and u2 in self.ROCK) or (u1 in self.PAPER or u2 in self.PAPER) or \
+        #         (u1 in self.SCISSORS and u2 in self.SCISSORS):
+        #     # if ((u1 and u2) in self.ROCK) or ((u1 and u2) in self.PAPER) or ((u1 and u2) in self.SCISSORS):
+        #     return "It's a tie"
+        if u1 in self.ROCK:
+            return "Congratulation's {} Wins".format(self.user1 if u2 in self.SCISSORS else self.user2) \
+                if u2 not in self.ROCK else "It's a TIE !!!"
+        elif u1 in self.SCISSORS:
+            return "Congratulation's {} Wins".format(self.user1 if u2 in self.PAPER else self.user2) \
+                if u2 not in self.SCISSORS else "It's a TIE !!!"
+        elif u1 in self.PAPER:
+            return "Congratulation's {} Wins".format(self.user1 if u2 in self.ROCK else self.user2) \
+                if u2 not in self.PAPER else "It's a TIE !!!"
+        else:
+            return "Invalid Input you have Not Entered rock, paper, scissor"
+
+
+a = RockPaperScissor()
+print(a.compare(a.user1_answer, a.user2_answer))
